@@ -1,0 +1,33 @@
+###TFLINT
+
+TFLint is a framework and each feature is provided by plugins, the key features are as follows:
+
+Find possible errors (like invalid instance types) for Major Cloud providers (AWS/Azure/GCP).
+Warn about deprecated syntax, unused declarations.
+Enforce best practices, naming conventions.
+
+Official git repo - https://github.com/terraform-linters/tflint
+
+
+
+# Install tflint
+
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+# configure project to use tftlint
+
+vim .tflint.hcl
+
+plugin "aws" {
+    enabled = true
+    version = "0.24.1"
+    source  = "github.com/terraform-linters/tflint-ruleset-aws"
+}
+
+## save and exit
+## run it in current project
+tflint --init
+
+## use tflint to verify values
+
+tflint
